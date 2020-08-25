@@ -1,10 +1,34 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import ReactDOM from "react-dom";
-
+// Grommet
+import { Box, Grommet } from "grommet";
+import { grommetTheme } from "./styles/theme";
+// Components
+import { Login } from "./sections/Login";
+// SW
 import * as serviceWorker from "./serviceWorker";
+// Additional styles
+import "./styles/reset.css";
+import { Header } from "./lib/components/Header";
 
 const App = () => {
-  return <div>app</div>;
+  return (
+    <Grommet theme={grommetTheme} full>
+      <Box fill>
+        <Header>Title</Header>
+        <Box
+          direction="row"
+          flex
+          overflow={{ horizontal: "hidden" }}
+          justify="center"
+        >
+          <Box flex align="center" justify="center" responsive>
+            <Login />
+          </Box>
+        </Box>
+      </Box>
+    </Grommet>
+  );
 };
 ReactDOM.render(<App />, document.getElementById("root"));
 
